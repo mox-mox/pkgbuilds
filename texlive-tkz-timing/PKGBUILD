@@ -1,0 +1,25 @@
+# Original autor: Martin Kumm <pluto@ls68.de> 
+# Maintainer: masterkorp  <masterkorp@gmail.com>    irc: masterkorp at freenode.org
+# Last edited: 2nd April 2011
+
+pkgname=texlive-tkz-timing
+pkgver=1.0
+pkgrel=1
+license=('GPL')
+depends=('texlive-core')
+pkgdesc="A LaTeX package for drawing timing plots using pgf/tikz"
+url="http://www.ctan.org/pkg/tikz-timing"
+arch=('any')
+install=texlive-tkz-timing.install
+source=(http://mirrors.ctan.org/graphics/pgf/contrib/tikz-timing.zip)
+md5sums=('13ab11e38f5ab4dfa51773047fdabf5c')
+
+package()
+{
+	cd tikz-timing
+	pdflatex tikz-timing.ins
+	mkdir -p $pkgdir/usr/share/texmf/tex/latex/tikz-timing
+	for file in $srcdir/tikz-timing/*.sty; do
+		cp $file $pkgdir/usr/share/texmf/tex/latex/tikz-timing
+	done
+}

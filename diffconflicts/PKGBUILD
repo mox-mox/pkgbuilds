@@ -1,0 +1,19 @@
+# Maintainer: mox <mox@uni-hd.de>
+pkgname=diffconflicts-git
+pkgver=8b34e82
+pkgrel=1
+pkgdesc="A better vimdiff mergetool for git"
+arch=('i686' 'x86_64')
+url="http://vim.wikia.com/wiki/A_better_Vimdiff_Git_mergetool"
+license=('GPL')
+groups=()
+depends=('vim' 'git')
+makedepends=('git')
+source=(https://raw.githubusercontent.com/whiteinge/dotfiles/master/bin/diffconflicts)
+noextract=()
+md5sums=(6c04fd40fa31265a44c2b5992e9abd7d)
+
+
+package() {
+  install -Dm755 diffconflicts "$pkgdir"/usr/bin/diffconflicts
+}

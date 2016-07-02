@@ -1,0 +1,23 @@
+# Original autor: Martin Kumm <pluto@ls68.de> 
+# Maintainer: masterkorp  <masterkorp@gmail.com>    irc: masterkorp at freenode.org
+# Last edited: 2nd April 2011
+
+pkgname=texlive-tkz-circuit
+pkgver=1.0
+pkgrel=1
+license=('GPL')
+depends=('texlive-core')
+pkgdesc="A LaTeX package for drawing timing plots using pgf/tikz"
+url="http://www.ctan.org/pkg/tikz-timing"
+arch=('any')
+install=texlive-tkz-circuit.install
+source=(http://mirrors.ctan.org/graphics/pgf/contrib/circuitikz.zip)
+md5sums=('04445312a87d2980ca5451a346cb6a69')
+
+package()
+{
+	mv circuitikz tikz-circuit
+	mkdir -p $pkgdir/usr/share/texmf/tex/latex/
+	cp -r tikz-circuit $pkgdir/usr/share/texmf/tex/latex/
+	chmod 644 $pkgdir/usr/share/texmf/tex/latex/tikz-circuit/* || return 1
+}

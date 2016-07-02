@@ -1,0 +1,21 @@
+# Original autor: Martin Kumm <pluto@ls68.de> 
+# Maintainer: masterkorp  <masterkorp@gmail.com>    irc: masterkorp at freenode.org
+# Last edited: 2nd April 2011
+
+pkgname=texlive-tkz-kiviat
+pkgver=1.3
+pkgrel=1
+license=('GPL')
+depends=('texlive-core')
+pkgdesc="A LaTeX package for drawing kiviat/radar/spidernet plots using pgf/tikz"
+url="http://altermundus.com/pages/tkz/kiviat/index.html"
+arch=('any')
+install=texlive-tkz-kiviat.install
+source=(http://mirrors.ctan.org/macros/latex/contrib/tkz/tkz-kiviat/latex/tkz-kiviat.sty)
+md5sums=('2ffd04f364542898ce5fa4d41fcc5fd8')
+
+package()
+{
+	mkdir -p $pkgdir/usr/share/texmf/tex/latex/tkz-kiviat
+	cp $srcdir/tkz-kiviat.sty $pkgdir/usr/share/texmf/tex/latex/tkz-kiviat
+}
